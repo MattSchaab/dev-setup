@@ -10,8 +10,9 @@ Skills I use with my coding agents, plus a script to install them.
 | `teach` | Runs `how` and `why` and weaves them into one plain explanation | [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills/teach) |
 | `unslop` | Cuts AI tells out of writing | [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills/unslop) |
 
-I did not write any of these. They are vendored unmodified from two upstream
-collections — see [credits](#credits-and-licensing).
+I did not write any of these. They are vendored from two upstream collections,
+with one local change to model selection in `how` and `why` — see
+[credits](#credits-and-licensing).
 
 ## Install
 
@@ -52,7 +53,9 @@ not create.
 ## Credits and licensing
 
 Every skill in this repo was written by someone else and is copied here
-unmodified. Credit where it is due:
+unmodified, except for one edit. `how` and `why` pick the newest Claude Opus
+or GPT Sol from the runtime's model catalog at `high` reasoning, instead of
+pstack's pinned Cursor model slugs. Credit where it is due:
 
 | Upstream | Author | Skills | License |
 |---|---|---|---|
