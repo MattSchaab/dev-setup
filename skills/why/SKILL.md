@@ -10,7 +10,7 @@ Investigate the motivation and intent behind code.
 
 Companion to the `how` skill. `how` answers what the code does and how it works. `why` answers what forces led to its shape.
 
-Each spawn below names a model family and a reasoning level. Resolve the family to the newest model of that family in the runtime's live model catalog every time this skill runs (in T3 Code, use `orchestrator_capabilities`). Never pin a version. Set the reasoning level explicitly: `effort` for Claude, `reasoningEffort` for Codex.
+Each spawn below names a model family and a reasoning level. Resolve the family to the newest model of that family in the runtime's live model catalog every time this skill runs (in T3 Code, use `orchestrator_capabilities`). Never pin a version. Set the reasoning level explicitly: `effort` for Claude, `reasoningEffort` for Codex. If the native subagent tool can't run the resolved model (GPT Sol from Claude Code, for example), dispatch through T3's `delegate_task`. Outside T3, use the closest model the tool supports and say so.
 
 ## Operating Posture
 
@@ -61,7 +61,7 @@ Capture this as seed context (file paths, symbols, commits, PR numbers, linked t
 
 ### Discovery
 
-Before spawning investigators, list the available MCPs from the Cursor environment. Use the available-tools map when present. Otherwise inspect the `mcps/` directory Cursor exposes for enabled MCP servers.
+Before spawning investigators, list the MCP servers available in this session from your tool list. MCP tools carry their server's name (`mcp__<server>__<tool>` in Claude Code), so group them by server.
 
 Map each available MCP to one evidence category:
 
@@ -80,10 +80,10 @@ Aim for a complete **coverage map**, not a minimal one. Document the null, don't
 Launch all matching investigators in a single message so they run concurrently. Don't ask one agent to cover multiple MCPs.
 
 Subagent config (each):
-- `subagent_type`: `generalPurpose`
+- agent type: general-purpose (`general-purpose` in Claude Code)
 - `model`: latest GPT Sol
 - reasoning: `high`
-- `readonly`: `false` (agent mode). **Do not use readonly/Ask mode.** It strips MCP access, which disables MCP-backed investigators entirely. Investigators still shouldn't write anything.
+- access: full tools, including MCP servers. Don't pick a read-only agent type, since it may not expose MCP tools and the MCP-backed investigators would come back empty. Investigators still shouldn't write anything.
 
 Each investigator gets:
 1. The base prompt from `references/investigator-prompt.md`
@@ -125,10 +125,10 @@ If your scope assessment suggests a single-commit trivial target where the PR de
 
 Spawn one synthesizer subagent:
 
-- `subagent_type`: `generalPurpose`
+- agent type: general-purpose (`general-purpose` in Claude Code)
 - `model`: latest Claude Opus
 - reasoning: `high`
-- `readonly`: `false` (agent mode). The synthesizer's quality check spot-verifies citations, which can require MCP access. Readonly/Ask mode strips MCPs and defeats that.
+- access: full tools, including MCP servers. The synthesizer's quality check spot-verifies citations, which can require MCP access.
 
 The synthesizer gets:
 1. The investigator findings, including any null results and any categories skipped with justification

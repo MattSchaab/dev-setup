@@ -12,7 +12,7 @@ Skills I use with my coding agents, plus a script to install them.
 | `wait-what` | Asks the agent to re-pitch its last message in plain, simplified English | [mattpocock/skills](https://github.com/mattpocock/skills/tree/main/skills/productivity/wait-what) |
 
 I did not write any of these. They are vendored from two upstream collections,
-with one local change to model selection in `how` and `why` — see
+with `how` and `why` adapted to run outside Cursor — see
 [credits](#credits-and-licensing).
 
 ## Install
@@ -54,9 +54,10 @@ not create.
 ## Credits and licensing
 
 Every skill in this repo was written by someone else and is copied here
-unmodified, except for one edit. `how` and `why` pick the newest Claude Opus
-or GPT Sol from the runtime's model catalog at `high` reasoning, instead of
-pstack's pinned Cursor model slugs. Credit where it is due:
+unmodified, except `how` and `why`, which pstack wrote for Cursor. Here they
+pick the newest Claude Opus or GPT Sol from the runtime's model catalog at
+`high` reasoning instead of pinned Cursor model slugs, and describe subagents
+in terms Claude Code, Codex and T3 Code understand. Credit where it is due:
 
 | Upstream | Author | Skills | License |
 |---|---|---|---|
