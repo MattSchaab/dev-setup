@@ -9,6 +9,7 @@ Skills I use with my coding agents, plus a script to install them.
 | `why` | Digs up design rationale from git, issues, docs, chat, and observability | [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills/why) |
 | `teach` | Runs `how` and `why` and weaves them into one plain explanation | [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills/teach) |
 | `unslop` | Cuts AI tells out of writing | [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills/unslop) |
+| `wait-what` | Asks the agent to re-pitch its last message in plain, simplified English | [mattpocock/skills](https://github.com/mattpocock/skills/tree/main/skills/productivity/wait-what) |
 
 I did not write any of these. They are vendored from two upstream collections,
 with one local change to model selection in `how` and `why` — see
@@ -59,7 +60,7 @@ pstack's pinned Cursor model slugs. Credit where it is due:
 
 | Upstream | Author | Skills | License |
 |---|---|---|---|
-| [mattpocock/skills](https://github.com/mattpocock/skills) | Matt Pocock | `grilling` | MIT — [`licenses/mattpocock-skills-MIT.txt`](licenses/mattpocock-skills-MIT.txt) |
+| [mattpocock/skills](https://github.com/mattpocock/skills) | Matt Pocock | `grilling`, `wait-what` | MIT — [`licenses/mattpocock-skills-MIT.txt`](licenses/mattpocock-skills-MIT.txt) |
 | [pstack](https://github.com/cursor/plugins/tree/main/pstack) | Lauren Tan | `how`, `why`, `teach`, `unslop` | MIT — [`licenses/pstack-MIT.txt`](licenses/pstack-MIT.txt) |
 
 Both upstream licenses are reproduced verbatim in `licenses/`, and each keeps
