@@ -10,6 +10,8 @@ Skills I use with my coding agents, plus a script to install them.
 | `teach` | Runs `how` and `why` and weaves them into one plain explanation | [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills/teach) |
 | `unslop` | Cuts AI tells out of writing | [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills/unslop) |
 | `wait-what` | Asks the agent to re-pitch its last message in plain, simplified English | [mattpocock/skills](https://github.com/mattpocock/skills/tree/main/skills/productivity/wait-what) |
+| `create-verification-skill` | Generates a project-local skill that launches and drives the app to prove behavior | [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills/create-verification-skill) |
+| `maintain-verification-skill` | Re-checks a generated verification skill against the app and fixes its feature map | [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills/maintain-verification-skill) |
 
 I did not write any of these. They are vendored from two upstream collections,
 with `how` and `why` adapted to run outside Cursor — see
@@ -46,6 +48,11 @@ Codex also still reads the deprecated `~/.codex/skills/`; this script targets
 the current path. Both agents read the same `SKILL.md` format, so the skills
 are installed as-is with no conversion.
 
+Some skills, like `create-verification-skill`, generate a new skill inside a
+project and tell you to put it in `.cursor/skills/`. Put it in
+`.agents/skills/<name>/` instead, with `.claude/skills/<name>` symlinked to it,
+so Codex and Claude Code both read one copy.
+
 The script only ever manages symlinks that point into this repo. If a real
 directory already sits at a target path, it says so and leaves it untouched
 rather than overwriting it — and `--uninstall` will not delete anything it did
@@ -62,7 +69,7 @@ in terms Claude Code, Codex and T3 Code understand. Credit where it is due:
 | Upstream | Author | Skills | License |
 |---|---|---|---|
 | [mattpocock/skills](https://github.com/mattpocock/skills) | Matt Pocock | `grilling`, `wait-what` | MIT — [`licenses/mattpocock-skills-MIT.txt`](licenses/mattpocock-skills-MIT.txt) |
-| [pstack](https://github.com/cursor/plugins/tree/main/pstack) | Lauren Tan | `how`, `why`, `teach`, `unslop` | MIT — [`licenses/pstack-MIT.txt`](licenses/pstack-MIT.txt) |
+| [pstack](https://github.com/cursor/plugins/tree/main/pstack) | Lauren Tan | `how`, `why`, `teach`, `unslop`, `create-verification-skill`, `maintain-verification-skill` | MIT — [`licenses/pstack-MIT.txt`](licenses/pstack-MIT.txt) |
 
 Both upstream licenses are reproduced verbatim in `licenses/`, and each keeps
 its own copyright notice. The skills stay under those licenses. Nothing in this
