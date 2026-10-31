@@ -48,6 +48,11 @@ Codex also still reads the deprecated `~/.codex/skills/`; this script targets
 the current path. Both agents read the same `SKILL.md` format, so the skills
 are installed as-is with no conversion.
 
+Some skills, like `create-verification-skill`, generate a new skill inside a
+project and tell you to put it in `.cursor/skills/`. Put it in
+`.agents/skills/<name>/` instead, with `.claude/skills/<name>` symlinked to it,
+so Codex and Claude Code both read one copy.
+
 The script only ever manages symlinks that point into this repo. If a real
 directory already sits at a target path, it says so and leaves it untouched
 rather than overwriting it — and `--uninstall` will not delete anything it did
