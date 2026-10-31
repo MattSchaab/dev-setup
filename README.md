@@ -10,6 +10,7 @@ Skills I use with my coding agents, plus a script to install them.
 | `teach` | Runs `how` and `why` and weaves them into one plain explanation | [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills/teach) |
 | `unslop` | Cuts AI tells out of writing | [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills/unslop) |
 | `wait-what` | Asks the agent to re-pitch its last message in plain, simplified English | [mattpocock/skills](https://github.com/mattpocock/skills/tree/main/skills/productivity/wait-what) |
+| `create-verification-skill` | Generates a project-local skill that launches and drives the app to prove behavior | [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills/create-verification-skill) |
 
 I did not write any of these. They are vendored from two upstream collections,
 with `how` and `why` adapted to run outside Cursor — see
@@ -62,7 +63,7 @@ in terms Claude Code, Codex and T3 Code understand. Credit where it is due:
 | Upstream | Author | Skills | License |
 |---|---|---|---|
 | [mattpocock/skills](https://github.com/mattpocock/skills) | Matt Pocock | `grilling`, `wait-what` | MIT — [`licenses/mattpocock-skills-MIT.txt`](licenses/mattpocock-skills-MIT.txt) |
-| [pstack](https://github.com/cursor/plugins/tree/main/pstack) | Lauren Tan | `how`, `why`, `teach`, `unslop` | MIT — [`licenses/pstack-MIT.txt`](licenses/pstack-MIT.txt) |
+| [pstack](https://github.com/cursor/plugins/tree/main/pstack) | Lauren Tan | `how`, `why`, `teach`, `unslop`, `create-verification-skill` | MIT — [`licenses/pstack-MIT.txt`](licenses/pstack-MIT.txt) |
 
 Both upstream licenses are reproduced verbatim in `licenses/`, and each keeps
 its own copyright notice. The skills stay under those licenses. Nothing in this
